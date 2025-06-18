@@ -222,4 +222,4 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ⭐ **Se este projeto te ajudou, deixe uma estrela!** ⭐
 
-**Desenvolvido com ❤️ e muito ☕ por [Matheus](https://github.com/Matheuscloud21)**
+**Desenvolvido com ❤️ e muito ☕ por [Matheus Oliveira](https://github.com/Matheuscloud21)**

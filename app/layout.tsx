@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Desenvolvedor Full Stack especializado em React, Next.js e tecnologias modernas',
   generator: 'Next.js',
   icons: {
-    icon: '/icon02.png',
+    icon: '/icon03.png',
   }
 }
 

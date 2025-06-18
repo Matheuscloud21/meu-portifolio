@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { Github, Linkedin, Mail, ExternalLink, Code, Palette, Database, Globe, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function Portfolio() {
@@ -82,24 +83,64 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "Plataforma completa de e-commerce com Next.js, TypeScript e Stripe",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-      image: "/placeholder.svg?height=200&width=300",
+      id: 1,
+      title: "Portifolio Front-End",
+      description: "Site pessoal para exibir projetos e stacks com visual moderno.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+      image: "/desing1.png",
+      githubUrl: "https://github.com/Matheuscloud21/meu-portifolio",
+      demoUrl: "https://matheusdevfull.vercel.app/",
+      status: "Concluído",
     },
     {
+      id: 2,
       title: "Dashboard Analytics",
       description: "Dashboard interativo para análise de dados com gráficos em tempo real",
       tech: ["React", "TypeScript", "Chart.js", "Node.js"],
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/placeholder.svg",
+      githubUrl: "https://github.com/Matheuscloud21/dashboard-analytics",
+      demoUrl: "https://dashboard-analytics-demo.vercel.app",
+      status: "Em andamento",
     },
     {
+      id: 3,
       title: "App Mobile",
       description: "Aplicativo mobile desenvolvido com React Native e TypeScript",
       tech: ["React Native", "TypeScript", "Expo", "Firebase"],
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/placeholder.svg",
+      githubUrl: "https://github.com/Matheuscloud21/app-mobile-fitness",
+      demoUrl: "https://expo.dev/@seu-usuario/app-mobile-fitness",
+      status: "Em andamento",
     },
+    // {
+    //   id: 4,
+    //   title: "App Mobile",
+    //   description: "Aplicativo mobile desenvolvido com React Native e TypeScript",
+    //   tech: ["React Native", "TypeScript", "Expo", "Firebase"],
+    //   image: "/placeholder.svg",
+    //   githubUrl: "https://github.com/Matheuscloud21/app-mobile-fitness",
+    //   demoUrl: "https://expo.dev/@seu-usuario/app-mobile-fitness",
+    //   status: "Em andamento",
+    // },
   ]
+
+
+  // Função para definir classes de imagem específicas por projeto
+  const getImageClasses = (projectId: number) => {
+    switch (projectId) {
+      case 1: // Portifolio Front-End - mais larga
+        return "w-96 h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+      case 2: // Dashboard Analytics - quadrada
+        return "w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+      case 3: // App Mobile - vertical
+        return "w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+    // case 4: // App Mobile - vertical
+        // return "w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+      default: // Padrão para novos projetos
+        return "w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+        
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white relative overflow-hidden">
@@ -244,7 +285,7 @@ export default function Portfolio() {
               variants={itemVariants}
               className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
             >
-              Sobre Mim
+              Matheus de Oliveira Borges
             </motion.h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -259,7 +300,7 @@ export default function Portfolio() {
                     <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden">
                       {/* Placeholder for photo/logo - replace with your actual image */}
                       <img
-                        src="/foto02.png"
+                        src="/iconPhoto.png"
                         alt="Foto do desenvolvedor"
                         className="w-full h-full rounded-full"
                         style={{
@@ -364,14 +405,28 @@ export default function Portfolio() {
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <motion.div key={project.title} variants={itemVariants} whileHover={{ y: -10 }}>
+                <motion.div key={project.id} variants={itemVariants} whileHover={{ y: -10 }} className="group">
                   <Card className="bg-gray-800/50 backdrop-blur-sm border-gray-700 text-white h-full">
                     <CardHeader>
-                      <img
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        className="w-full h-48 object-cover rounded-lg mb-4"
-                      />
+                      <div className="relative flex items-center justify-center">
+                        <img
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          className={`${getImageClasses(project.id)} rounded-lg mb-4`}
+                        />
+                        <div className="absolute top-2 right-2">
+                          <Badge
+                            variant={project.status === "Concluído" ? "default" : "secondary"}
+                            className={
+                              project.status === "Concluído"
+                                ? "bg-green-600 hover:bg-green-700 text-white"
+                                : "bg-orange-600 hover:bg-orange-700 text-white"
+                            }
+                          >
+                            {project.status}
+                          </Badge>
+                        </div>
+                      </div>
                       <CardTitle className="text-xl">{project.title}</CardTitle>
                       <CardDescription className="text-gray-400">{project.description}</CardDescription>
                     </CardHeader>
@@ -384,13 +439,17 @@ export default function Portfolio() {
                         ))}
                       </div>
                       <div className="flex space-x-4">
-                        <Button size="sm" variant="outline" className="border-blue-400 text-blue-400">
-                          <Github className="w-4 h-4 mr-2" />
-                          Código
+                        <Button size="sm" variant="outline" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white" asChild>
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="w-4 h-4 mr-2" />
+                            Código
+                          </a>
                         </Button>
-                        <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Demo
+                        <Button size="sm" className="bg-blue-600 hover:bg-blue-700" asChild>
+                          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Demo
+                          </a>
                         </Button>
                       </div>
                     </CardContent>

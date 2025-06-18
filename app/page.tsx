@@ -95,7 +95,7 @@ export default function Portfolio() {
     {
       id: 2,
       title: "Dashboard Analytics",
-      description: "Dashboard interativo para análise de dados com gráficos em tempo real",
+      description: "Dashboard interativo para análise de dados com gráficos em tempo real.",
       tech: ["React", "TypeScript", "Chart.js", "Node.js"],
       image: "/placeholder.svg",
       githubUrl: "https://github.com/Matheuscloud21/dashboard-analytics",
@@ -226,7 +226,7 @@ export default function Portfolio() {
       <section id="home" className="min-h-screen flex items-center justify-center relative z-10">
         <motion.div className="text-center px-6" variants={containerVariants} initial="hidden" animate="visible">
           <motion.div className="mb-8">
-            <motion.h1 className="text-7xl md:text-8xl font-bold mb-4">
+            <motion.h1 className="text-7xl md:text-8xl font-bold mb-4 font-poppins">
               {"Desenvolvedor".split("").map((letter, index) => (
                 <motion.span
                   key={index}
@@ -237,7 +237,7 @@ export default function Portfolio() {
                 </motion.span>
               ))}
             </motion.h1>
-            <motion.h2 className="text-2xl md:text-4xl text-gray-300 mb-6">
+            <motion.h2 className="text-2xl md:text-4xl text-gray-300 mb-6 font-inter">
               {"Full Stack".split("").map((letter, index) => (
                 <motion.span
                   key={index}
@@ -250,7 +250,7 @@ export default function Portfolio() {
               ))}
             </motion.h2>
           </motion.div>
-          <motion.p variants={itemVariants} className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+          <motion.p variants={itemVariants} className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto font-dm-sans">
             Criando experiências digitais incríveis com tecnologias modernas
           </motion.p>
           <motion.div variants={itemVariants} className="flex justify-center space-x-4">
@@ -283,7 +283,7 @@ export default function Portfolio() {
           >
             <motion.h2
               variants={itemVariants}
-              className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-poppins"
             >
               Matheus de Oliveira Borges
             </motion.h2>
@@ -329,12 +329,12 @@ export default function Portfolio() {
 
               {/* Text Content */}
               <motion.div variants={itemVariants} className="space-y-6">
-                <motion.p variants={itemVariants} className="text-xl text-gray-300 leading-relaxed">
+                <motion.p variants={itemVariants} className="text-xl text-gray-300 leading-relaxed font-dm-sans">
                   Sou um desenvolvedor apaixonado por criar soluções digitais inovadoras. Com experiência em
                   desenvolvimento full-stack, trabalho com as tecnologias mais modernas do mercado para entregar
                   produtos de alta qualidade.
                 </motion.p>
-                <motion.p variants={itemVariants} className="text-lg text-gray-400 leading-relaxed">
+                <motion.p variants={itemVariants} className="text-lg text-gray-400 leading-relaxed font-urbanist">
                   Minha jornada começou com curiosidade sobre como as coisas funcionam na web, e hoje transformo ideias
                   em realidade através do código. Estou sempre aprendendo novas tecnologias e buscando desafios que me
                   permitam crescer profissionalmente.
@@ -361,7 +361,7 @@ export default function Portfolio() {
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.h2
               variants={itemVariants}
-              className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-poppins"
             >
               Habilidades
             </motion.h2>
@@ -399,7 +399,7 @@ export default function Portfolio() {
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.h2
               variants={itemVariants}
-              className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-poppins"
             >
               Projetos
             </motion.h2>
@@ -427,8 +427,8 @@ export default function Portfolio() {
                           </Badge>
                         </div>
                       </div>
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      <CardDescription className="text-gray-400">{project.description}</CardDescription>
+                      <CardTitle className="text-xl font-inter">{project.title}</CardTitle>
+                      <CardDescription className="text-gray-400 font-urbanist">{project.description}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="flex flex-wrap gap-2 mb-4">
@@ -473,11 +473,11 @@ export default function Portfolio() {
           >
             <motion.h2
               variants={itemVariants}
-              className="text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-poppins"
             >
               Contato
             </motion.h2>
-            <motion.p variants={itemVariants} className="text-xl text-gray-300 mb-12">
+            <motion.p variants={itemVariants} className="text-xl text-gray-300 mb-12 font-dm-sans">
               Vamos trabalhar juntos? Entre em contato!
             </motion.p>
             <motion.div variants={itemVariants} className="flex justify-center space-x-8">

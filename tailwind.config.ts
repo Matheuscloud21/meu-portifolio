@@ -10,6 +10,14 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			'poppins': ['var(--font-poppins)'],
+  			'inter': ['var(--font-inter)'],
+  			'dm-sans': ['var(--font-dm-sans)'],
+  			'urbanist': ['var(--font-urbanist)'],
+  			'heading': ['var(--font-poppins)', 'var(--font-inter)'],
+  			'body': ['var(--font-dm-sans)', 'var(--font-urbanist)'],
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
